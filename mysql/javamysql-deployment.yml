@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javamysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javamysql
+  template:
+    metadata:
+      labels:
+        app: javamysql
+    spec:
+      containers:
+        - image: reddocker1337/javamysql:latest
+          imagePullPolicy: IfNotPresent
+          name: javamysql
+      restartPolicy: Always
